@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Go To Mart App</string>
+    <string name="tab_text_1">Shopping list</string>
+    <string name="tab_text_2">All items</string>
+</resources>
