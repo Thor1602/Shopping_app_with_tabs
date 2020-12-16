@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.shoppingapp3.ui.main.SectionsPagerAdapter;
 
@@ -27,13 +28,20 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Snackbar.make(view, "This button is useless, idiots!!", Snackbar.LENGTH_LONG)
+                        .setAction("Sex", new MyUndoListener()).show();
             }
+
         });
+
+    }
+    public class MyUndoListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(MainActivity.this, "Ah Ah Ah... Come on... Ride me, horse", Toast.LENGTH_SHORT).show();
+        }
     }
 }
