@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.shoppingapp3.ui.main.SectionsPagerAdapter;
@@ -28,13 +31,19 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
+
+        Button addItem;
+        EditText korean, english;
+        ListView totalItems;
+        DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "This button is useless, idiots!!", Snackbar.LENGTH_LONG)
-                        .setAction("Sex", new MyUndoListener()).show();
+                Snackbar snackbar = Snackbar.make(view, "Do you want sex?", Snackbar.LENGTH_LONG);
+                snackbar.setAction("Yes", new MyUndoListener());
+                snackbar.show();
             }
-
         });
 
     }
