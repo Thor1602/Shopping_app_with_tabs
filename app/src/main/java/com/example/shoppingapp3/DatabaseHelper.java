@@ -1,12 +1,10 @@
 package com.example.shoppingapp3;
-import android.content.ClipData;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,18 +13,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public static final String SHOPPING_ITEMS = "shopping_items";
+    public static final String SHOPPING_LIST = "shopping_list";
     public static final String COLUMN_ID = "ID";
     public static final String COLUMN_ENGLISH = "english";
     public static final String COLUMN_KOREAN = "korean";
 
-    public DatabaseHelper(@Nullable MainActivity context) {
-        super(context, "martians.db", null , 1);
+    public DatabaseHelper(@Nullable Context context) {
+        super(context, "martians.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CreateTableStatement = "CREATE TABLE " + SHOPPING_ITEMS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_ENGLISH + " TEXT, " + COLUMN_KOREAN + " TEXT)";
+        String CreateTableStatementTwo = "CREATE TABLE " + SHOPPING_LIST + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_ENGLISH + " TEXT, " + COLUMN_KOREAN + " TEXT)";
         db.execSQL(CreateTableStatement);
+        db.execSQL(CreateTableStatementTwo);
 
     }
 

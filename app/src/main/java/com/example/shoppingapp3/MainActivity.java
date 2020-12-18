@@ -9,9 +9,8 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -31,11 +30,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
-
-        Button addItem;
-        EditText korean, english;
-        ListView totalItems;
-        DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+//        DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,10 +42,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     public class MyUndoListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Toast.makeText(MainActivity.this, "Ah Ah Ah... Come on... Ride me, horse", Toast.LENGTH_SHORT).show();
         }
     }
+
 }
